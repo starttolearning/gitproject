@@ -51,8 +51,8 @@ class UserInfo(Base):
 
 article_tag = Table(
   'article_tag', Base.metadata,
-  Column('article_id', Integer, ForeignKey('articles.id')
-  Column('tag_id', Integer, ForeignKey('tags_id')
+  Column('article_id', Integer, ForeignKey('articles.id')),
+  Column('tag_id', Integer, ForeignKey('tags_id'))
 )
 
 class Tag(Base):
@@ -64,9 +64,8 @@ class Tag(Base):
     return '%s(%r)' %(self.__class__.__name__, self.name)
 
 
-
-
-Base.metadata.create_all(engine)
+if __name__ == '__main__':
+  Base.metadata.create_all(engine)
 
 
 
